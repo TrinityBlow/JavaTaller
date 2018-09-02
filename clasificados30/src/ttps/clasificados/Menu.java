@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,14 +39,17 @@ public class Menu extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Encabezado");
 		@SuppressWarnings("unchecked")
 		ArrayList<String> operaciones = (ArrayList<String>) request.getAttribute("operaciones");
 		String operacion;
 		Iterator<String> it = operaciones.iterator();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		
+
 		out.println("<html><body>");
+		dispatcher.include(request, response);
 		out.println("<h1> Menu de " + request.getAttribute("tipoUsuario") +" </h1>");
 		out.println();
 		out.println("<ul>");
@@ -55,7 +59,6 @@ public class Menu extends HttpServlet {
 		}
 		out.println("</ul>");
 		out.print("</body></html>");
-		out.close();
 	}
 
 }
