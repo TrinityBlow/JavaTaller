@@ -42,9 +42,6 @@ public class FiltroLogDeAccesos implements Filter {
 		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		String ipAddress = httpRequest.getHeader("X-FORWARDED-FOR");  
@@ -56,13 +53,15 @@ public class FiltroLogDeAccesos implements Filter {
 		String currentTime = format.format(now);
 		
 		config.getServletContext().log(ipAddress +" - " + httpRequest.getHeader("User-Agent") + " [" + currentTime + "] \"" + httpRequest.getMethod() + httpRequest.getRequestURI() + httpRequest.getProtocol() + "\"");
-		System.out.println(ipAddress +" - " + httpRequest.getHeader("User-Agent") + " [" + currentTime + "] \"" + httpRequest.getMethod() + httpRequest.getRequestURI() + httpRequest.getProtocol() + "\"");
+//		System.out.println(ipAddress +" - " + httpRequest.getHeader("User-Agent") + " [" + currentTime + "] \"" + httpRequest.getMethod() + httpRequest.getRequestURI() + httpRequest.getProtocol() + "\"");
 		chain.doFilter(request, response);
 	}
-
-	/**
-	 * @see Filter#init(FilterConfig)
+	
+	/*
+	 * Cuando el servlet Login es ejecutado al hacer forward este filtro se aplica 2 veces.
+	 * 
 	 */
+	
 	public void init(FilterConfig fConfig) throws ServletException {
 		this.config = fConfig;
 	}

@@ -1,0 +1,47 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<servlet>
+		<servlet-name>ServletDatosAuto</servlet-name>
+		<display-name>ServletDatosAuto</display-name>
+		<description></description>
+		<servlet-class>servlets.ServletDatosAuto</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletDatosComprador</servlet-name>
+		<display-name>ServletDatosComprador</display-name>
+		<description></description>
+		<servlet-class>servlets.ServletDatosComprador</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletDatosCobertura</servlet-name>
+		<display-name>ServletDatosCobertura</display-name>
+		<description></description>
+		<servlet-class>servlets.ServletDatosCobertura</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletEncabezado</servlet-name>
+		<display-name>ServletEncabezado</display-name>
+		<description></description>
+		<servlet-class>servlets.ServletEncabezado</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDatosAuto</servlet-name>
+		<url-pattern>/ServletDatosAuto</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletDatosComprador</servlet-name>
+		<url-pattern>/ServletDatosComprador</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletDatosCobertura</servlet-name>
+		<url-pattern>/ServletDatosCobertura</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletEncabezado</servlet-name>
+		<url-pattern>/ServletEncabezado</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
